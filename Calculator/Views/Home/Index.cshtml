@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .button {
+        width: 70%;
+    }
+</style>
+<div style="border:solid; margin-top:10%; width:27%;">
+    <br />
+    <div class="row">
+        <div>
+            <input type="text" id="txt_display" style="background-color: #ddd;margin-left: 7%;padding: 2%;width: 100%;" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_seven" value="7" />
+
+            </div>
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_eight" value="8" />
+
+            </div>
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_nine" value="9" />
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_four" value="4" />
+
+            </div>
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_five" value="5" />
+
+            </div>
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_six" value="6" />
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <input type="button" class=" button btn btn-info" id="btn_one" value="1" />
+            </div>
+            <div class="col-md-4">
+                <input type="button" class=" button btn btn-info" id="btn_two" value="2" />
+
+            </div>
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_three" value="3" />
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_zero" value="0" />
+
+            </div>
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_dot" value="." />
+
+            </div>
+            <div class="col-md-4">
+                <input type="button" class="button btn btn-info" id="btn_plus" value="+" />
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-8">
+            <input type="button" class="button btn btn-info" id="btn_equals" value="=" style="margin-left: 7%; margin-bottom: 1%;" />
+        </div>
+        <div class="col-md-4">
+            <input type="button" class="button btn btn-info" id="btn_clr" value="clr" style="margin-left: -10%;"/>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+<script>
+    $(document).ready(function ()
+    {
+        $("#txt_display").val('0');
+        var temp_value1;
+        var temp_value2;
+        $(".button").click(function () {
+          
+            if (this.value != "=" && this.value != "+" && this.value != "clr") {
+                $("#txt_display").val('');
+                    $("#txt_display").val($("#txt_display").val() + this.value);
+                
+            }
+            else if (this.value == "+") {
+                temp_value1 = $("#txt_display").val();
+                $("#txt_display").val('');
+
+            }
+            else if (this.value == "=") {
+                temp_value2 = $("#txt_display").val();
+                var Sum = (parseFloat(temp_value1) + parseFloat(temp_value2));
+                $("#txt_display").val(Sum);
+            }
+            else {
+                $("#txt_display").val('0');
+            }
+        });
+    });
+</script>
